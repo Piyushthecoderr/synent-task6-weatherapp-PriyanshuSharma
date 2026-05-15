@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Weather Report Using API</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}" >
+</head>
+<body>
+<div class="WeatherContainer">
+    <h1>WeatherPulse</h1>
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter Name of City" required >
+        <button type="submit"> Find Weather Data </button>
+    </form>
+
+    {% if weather_data %}
+        {% if weather_data.error %}
+            <p class="ErrorInDataFetch">{{ weather_data.error }}</p>
+        {% else %}
+            <div class="WeatherInformation">
+                <h2>{{weather_data.city}},{{weather_data.country}}</h2>
+                <p>Sunrise: {{weather_data.sunrise}}</p>
+                <p>Sunset: {{weather_data.sunset}}</p>
+                <p>Temperature: {{weather_data.temperature_celsius}} °C</p>
+                <p>Feels Like: {{weather_data.feels_like}} °C </p>
+                <p>Minimum Temperature: {{weather_data.minimum_temperature}} °C</p>                
+                <p>Maximum Temperature: {{weather_data.maximum_temperature}} °C</p>                
+                <p>Humidity: {{weather_data.humidity}}%</p>          
+                <p>Pressure: {{weather_data.pressure}} hPa</p>
+                <p> Weather Condition: {{weather_data.weather_condition}}</p>            
+                <p> Description: {{weather_data.weather_description}}</p>             
+                <p> Wind Speed: {{weather_data.wind_speed}} m/s</p>                
+            </div>         
+        {% endif %}
+    {% endif %}
+</div>
+</body>
+</html>          

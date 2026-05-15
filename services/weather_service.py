@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-from config import weather_api_key,BASE_URL
+from configuration import weather_api_key,BASE_URL
 def get_weather(city_name):
     #URL query parameters.
     params={ 
