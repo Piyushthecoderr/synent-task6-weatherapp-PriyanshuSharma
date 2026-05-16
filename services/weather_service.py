@@ -14,6 +14,7 @@ def get_weather(city_name):
         response = requests.get(BASE_URL, params=params)
         #Server returns data in JSON format.Converts JSON response into Python dictionary
         data = response.json()
+        
         # | Status Code | What it Implies        |
         # |-------------| ---------------------- |
         # |    200      | Request Successful     |
@@ -27,7 +28,7 @@ def get_weather(city_name):
         weather_details={
         "city":data["name"],
             
-        #Sys: System/internal information section,Contains:country,sunrise,sunset
+        #sys: System/internal information section,Contains:country,sunrise,sunset
             "country":data["sys"]["country"],
             "sunrise":datetime.fromtimestamp(data["sys"]["sunrise"]).strftime("%I:%M %p"),
             "sunset":datetime.fromtimestamp(data["sys"]["sunset"]).strftime("%I:%M %p"),
@@ -42,6 +43,17 @@ def get_weather(city_name):
 
         "weather_condition":data["weather"][0]["main"],
         "weather_description":data["weather"][0]["description"],
+
+        # | Code No. | what it repersents |
+        # | -------- | ------------------ |
+        # | 01       | clear sky          |
+        # | 02       | few clouds         |
+        # | 03       | scattered clouds   |
+        # | 09       | shower rain        |
+        # | 10       | rain               |
+        # | 11       | thunderstorm       |
+
+        "weather_icon":data["weather"][0]["icon"], #I used it to extract icon ID
 
         "wind_speed":data["wind"]["speed"]
         }

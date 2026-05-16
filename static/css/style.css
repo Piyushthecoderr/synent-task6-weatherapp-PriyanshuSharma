@@ -64,3 +64,34 @@ button{
 
     button{width:100%;}
 }
+
+.HeaderForWeather{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;}
+
+.HeaderForWeather img{
+    width:90px;
+    height:90px;}
+
+.ConditionOfWeather{
+    color:#cbd5e1;
+    margin-top:-10px;}
+
+.SearchedRecently{
+    margin-top:25px;
+    padding:15px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    text-align:left;}
+
+.SearchedRecently h3{ margin-top:0;}
+
+.SearchedRecently ul{
+    padding-left:20px;
+    margin-bottom:0;}
+
+.SearchedRecently li{margin-bottom:6px;}
+
+strong{ color:#93c5fd;}

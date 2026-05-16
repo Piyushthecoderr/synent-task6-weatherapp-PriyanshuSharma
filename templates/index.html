@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Weather Report Using API</title>
 <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}" >
 </head>
@@ -13,24 +14,40 @@
         <button type="submit"> Find Weather Data </button>
     </form>
 
+    {% if recent_searches %}
+        <div class="SearchedRecently">
+        <h3>Recently Searched Cities</h3>
+        <ul>
+            {% for city in recent_searches %}
+                <li>{{city}}</li>
+            {% endfor %}
+        </ul>
+        </div>
+    {% endif %}
+
     {% if weather_data %}
         {% if weather_data.error %}
-            <p class="ErrorInDataFetch">{{ weather_data.error }}</p>
+            <p class="ErrorInDataFetch">{{weather_data.error}}</p>
         {% else %}
-            <div class="WeatherInformation">
-                <h2>{{weather_data.city}},{{weather_data.country}}</h2>
-                <p>Sunrise: {{weather_data.sunrise}}</p>
-                <p>Sunset: {{weather_data.sunset}}</p>
-                <p>Temperature: {{weather_data.temperature_celsius}} °C</p>
-                <p>Feels Like: {{weather_data.feels_like}} °C </p>
-                <p>Minimum Temperature: {{weather_data.minimum_temperature}} °C</p>                
-                <p>Maximum Temperature: {{weather_data.maximum_temperature}} °C</p>                
-                <p>Humidity: {{weather_data.humidity}}%</p>          
-                <p>Pressure: {{weather_data.pressure}} hPa</p>
-                <p> Weather Condition: {{weather_data.weather_condition}}</p>            
-                <p> Description: {{weather_data.weather_description}}</p>             
-                <p> Wind Speed: {{weather_data.wind_speed}} m/s</p>                
-            </div>         
+        <div class="WeatherInformation">
+            <div class="HeaderForWeather">
+                <div>
+                    <h2>{{weather_data.city}},{{weather_data.country}}</h2>
+                    <p class="ConditionOfWeather">{{weather_data.weather_condition}}</p>
+                </div>
+                <img src="https://openweathermap.org/img/wn/{{ weather_data.weather_icon }}@2x.png" alt="Weather Icon">
+            </div>
+            <p> <strong>Temperature:</strong> {{weather_data.temperature_celsius}} °C </p>
+            <p> <strong>Feels Like:</strong> {{weather_data.feels_like}} °C </p>
+            <p> <strong>Minimum Temperature:</strong> {{weather_data.minimum_temperature}} °C </p>
+            <p> <strong>Maximum Temperature:</strong> {{weather_data.maximum_temperature}} °C </p>
+            <p> <strong>Humidity:</strong> {{weather_data.humidity}}% </p>
+            <p> <strong>Pressure:</strong> {{weather_data.pressure}} hPa </p>
+            <p> <strong>Description:</strong> {{weather_data.weather_description}} </p>
+            <p> <strong>Wind Speed:</strong> {{weather_data.wind_speed}} m/s </p>
+            <p> <strong>Sunrise:</strong> {{weather_data.sunrise}} </p>
+            <p> <strong>Sunset:</strong> {{weather_data.sunset}} </p>
+        </div>         
         {% endif %}
     {% endif %}
 </div>
