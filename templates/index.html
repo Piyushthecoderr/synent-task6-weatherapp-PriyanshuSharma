@@ -6,7 +6,7 @@
 <title>Weather Report Using API</title>
 <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}" >
 </head>
-<body>
+<body class="{{background_class}}">
 <div class="WeatherContainer">
     <h1>WeatherPulse</h1>
     <form method="POST">
@@ -51,5 +51,10 @@
         {% endif %}
     {% endif %}
 </div>
+<script src="{{url_for('static',filename='javaScript/seventScript.js')}}"></script>
 </body>
+<footer>
+    <p>Powered by OpenWeatherMap API</p>
+    <p>Built using Python,Flask,HTML,CSS & JavaScript</p>
+</footer>
 </html>          

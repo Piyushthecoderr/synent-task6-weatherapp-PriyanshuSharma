@@ -8,7 +8,11 @@ body{
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
-    background-attachment:fixed;}
+    background-attachment:fixed;
+
+    transition:
+        background-image 0.6s ease-in-out,
+        background-color 0.4s ease;}
 
 .WeatherContainer{
     width:90%;
@@ -16,10 +20,12 @@ body{
     margin:40px auto;
     text-align:center;
     padding:25px;
-    border-radius:16px;
-    background:rgba(0,0,0,0.55);
-    backdrop-filter:blur(6px);
-    box-sizing:border-box;}
+    border-radius:18px;
+    background:rgba(0,0,0,0.58);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    box-sizing:border-box;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);}
 
 form{ margin-top:20px;}
 
@@ -31,39 +37,64 @@ input{
     outline:none;
     font-size:1rem;
     box-sizing:border-box;
-    margin-bottom:12px;}
+    margin-bottom:12px;
+    background:rgba(255,255,255,0.95);}
 
 button{
     padding:12px 18px;
     border:none;
     border-radius:8px;
     cursor:pointer;
-    font-size:1rem;}
+    font-size:1rem;
+    background:#2563eb;
+    color:white;
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease;}
+
+button:hover{
+    background:#1d4ed8;
+    transform:scale(1.02);}
+
+button:disabled{
+    opacity:0.7;
+    cursor:not-allowed;}
 
 .WeatherInformation{
     margin-top:30px;
     padding:20px;
-    border-radius:12px;
-    background:rgba(255,255,255,0.08);
-    text-align:left;}
+    border-radius:14px;
+    background:rgba(15,23,42,0.78);;
+    text-align:left;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);}
 
-.WeatherInformation p{ line-height:1.5; }
+.WeatherInformation p{ line-height:1.7; }
 
 .ErrorInDataFetch{
     color:#ff4d4d;
     margin-top:20px;
-    font-weight:bold;}
+    font-weight:bold;
+    background:rgba(0,0,0,0.35);
+    padding:12px;
+    border-radius:10px;}
 
+.weatherDefault{background-image:url("../images/bg.png");}
 
-@media screen and (max-width:768px){
-    .WeatherContainer{
-        width:95%;
-        padding:18px;}
+.weatherCloudy{background-image:url("https://images.unsplash.com/photo-1534088568595-a066f410bcda");}
 
-    input{width:100%;}
+.weatherRainy{background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8jWlbSTRicWQyeWbO-yw32inwK8C5F7Etew&s");}
 
-    button{width:100%;}
-}
+.weatherClear{ background-image:url("https://www.adotrip.com/public/city-images/5e4a4dee3033f-Chandigarh_Attractions.jpg");}
+
+.weatherSnowy{background-image:url("https://www.jakhuropewayshimla.com/wp-content/uploads/2022/01/1944_3_7500.jpg"); }
+
+.weatherStormy{ background-image:url("https://wallpapers.com/images/featured/dark-storm-co3a54z2gi0coxep.jpg"); }
+
+footer{
+    margin-top:30px;
+    font-size:0.9rem;
+    color:#e2e8f0;
+    text-align:center;}
 
 .HeaderForWeather{
     display:flex;
@@ -83,7 +114,7 @@ button{
     margin-top:25px;
     padding:15px;
     border-radius:12px;
-    background:rgba(255,255,255,0.08);
+    background:rgba(15,23,42,0.72);;
     text-align:left;}
 
 .SearchedRecently h3{ margin-top:0;}
@@ -95,3 +126,27 @@ button{
 .SearchedRecently li{margin-bottom:6px;}
 
 strong{ color:#93c5fd;}
+
+@media screen and (max-width:768px){
+
+    body{
+        background-position:center center;
+        background-attachment:scroll;}
+
+    .WeatherContainer{
+        width:95%;
+        padding:18px;
+        margin-top:20px;}
+
+    input{width:100%;}
+
+    button{width:100%;}
+
+    .HeaderForWeather{
+        flex-direction:column;
+        text-align:center;}
+
+    .HeaderForWeather img{
+        width:80px;
+        height:80px;}
+                                    }

@@ -19,7 +19,25 @@ def home():
                 fetch_recent_search.insert(0,cityName)
                 session["recent_searches"]=fetch_recent_search[:5]
 
-    return render_template("index.html",weather_data=weatherData,recent_searches=session["recent_searches"])
+    backgClass="weatherDefault"
+    if weatherData and "error" not in weatherData:
+        weather_condition=weatherData["weather_condition"].lower()
+        if "cloud" in weather_condition:
+            backgClass="weatherCloudy"
+
+        elif "rain" in weather_condition:
+            backgClass="weatherRainy"
+
+        elif "clear" in weather_condition:
+            backgClass="weatherClear"
+
+        elif "snow" in weather_condition:
+            backgClass="weatherSnowy"
+
+        elif "thunderstorm" in weather_condition:
+            backgClass="weatherStormy"
+
+    return render_template("index.html",weather_data=weatherData,recent_searches=session["recent_searches"],background_class=backgClass)
 
 if __name__=="__main__":
     app.run(debug=True)
