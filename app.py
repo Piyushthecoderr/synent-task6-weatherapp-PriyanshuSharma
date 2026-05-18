@@ -1,3 +1,4 @@
+from utils.weatherBackground import getBackgroundClass
 from flask import Flask,render_template,request,session
 from services.weather_service import get_weather
 from configuration import SECRET_KEY
@@ -21,21 +22,7 @@ def home():
 
     backgClass="weatherDefault"
     if weatherData and "error" not in weatherData:
-        weather_condition=weatherData["weather_condition"].lower()
-        if "cloud" in weather_condition:
-            backgClass="weatherCloudy"
-
-        elif "rain" in weather_condition:
-            backgClass="weatherRainy"
-
-        elif "clear" in weather_condition:
-            backgClass="weatherClear"
-
-        elif "snow" in weather_condition:
-            backgClass="weatherSnowy"
-
-        elif "thunderstorm" in weather_condition:
-            backgClass="weatherStormy"
+        backgClass=getBackgroundClass(weatherData["weather_condition"])
 
     return render_template("index.html",weather_data=weatherData,recent_searches=session["recent_searches"],background_class=backgClass)
 
