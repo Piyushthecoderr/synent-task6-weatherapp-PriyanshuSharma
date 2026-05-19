@@ -86,15 +86,17 @@ button:disabled{
 
 .weatherDefault{background-image:url("https://media.istockphoto.com/id/835370890/photo/sunset-sunrise-with-clouds-light-rays-and-other-atmospheric-effect.jpg?b=1&s=612x612&w=0&k=20&c=J5zrqTZyYcovhAf8jGbZ4f69o43tKoaX7bUnbcYZOiA=");}
 
-.weatherCloudy{background-image:url("https://images.unsplash.com/photo-1534088568595-a066f410bcda");}
+.weatherCloudy{background-image:url("https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1200&auto=format&fit=crop");}
 
 .weatherRainy{background-image:url("https://images.unsplash.com/photo-1515694346937-94d85e41e6f0");}
 
-.weatherClear{ background-image:url("https://www.adotrip.com/public/city-images/5e4a4dee3033f-Chandigarh_Attractions.jpg");}
+.weatherClear{ 
+    background-image:url("../images/clearWeather.png");
+    background-position:center 70%;}
 
 .weatherSnowy{background-image:url("https://www.jakhuropewayshimla.com/wp-content/uploads/2022/01/1944_3_7500.jpg"); }
 
-.weatherStormy{ background-image:url("https://wallpapers.com/images/featured/dark-storm-co3a54z2gi0coxep.jpg"); }
+.weatherStormy{ background-image:url("https://images.unsplash.com/photo-1594760467013-64ac2b80b7d3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHN0b3JteSUyMHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D"); }
 
 .weatherHaze{background-image:url("https://images.unsplash.com/photo-1686681225678-77ffeac132a2?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");}
 
@@ -141,6 +143,16 @@ footer{
 .SearchedRecently li{margin-bottom:6px;}
 
 strong{ color:#93c5fd;}
+
+.RepoLink{
+    color:#93c5fd;
+    text-decoration:none;
+    font-weight:bold;
+    transition:color 0.3s ease;}
+
+.RepoLink:hover{
+    color:#dbeafe;
+    text-decoration:underline;}
 
 @media screen and (max-width:768px){
 
